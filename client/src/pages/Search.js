@@ -8,8 +8,8 @@ function About() {
     return (
       <div>
         <Hero backgroundImage={backgroundImage}>
-          <h1>Personnel</h1>
-          <h2>Find your books here!</h2>
+          <h1>Books</h1>
+          <h2>Find your readings here!</h2>
         </Hero>
         <Container style={{ marginTop: 30 }}>
           <Row>
