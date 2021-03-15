@@ -8,7 +8,7 @@ function Navbar() {
         Google Books
       </Link>
       <div>
-        <ul className="navbar-nav">
+        <ul className="navbar-nav nav-collpase">
           <li className="nav-item">
             <Link to="/" className="nav-link active">
               Search

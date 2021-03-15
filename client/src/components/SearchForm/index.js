@@ -18,7 +18,7 @@ import React from "react";
 
 function SearchForm(props) {
     return (
-      <div className="input-group mt-2">
+      <div className="input-group mt-2" style={{ fontSize: 100 }}>
         <input 
           value={props.search}
           onChange={props.handleInputChange} 

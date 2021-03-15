@@ -3,27 +3,32 @@ import { Row, Col } from "../Grid/index";
 
 function SearchList(props) {
   return (
-    <ul className="list-group search-results">
-      {props.books.map(book => (
-        <li key={book} >
-          <Row>
-            <Col size="md-2">
-              <img src={book.volumeInfo.imageLinks?.thumbnail} alt="book" />
-            </Col>
+    <div className="card mt-5">
+      <ul className="list-group search-results">
+        {props.books.map(book => (
+          <li className="list-group-item" key={book.id}>
+            <Row>
+              <Col size="md-2">
+                <img src={book.volumeInfo.imageLinks?.thumbnail} alt="book" />
+              </Col>
 
-            <Col size="md-8">
-              <h2>{book.volumeInfo.title}</h2>
-              <h3>{book.volumeInfo.authors?.join(", ")}</h3>
-              <p>{book.volumeInfo.description}</p>
-            </Col>
+              <Col size="md-10">
+                <h3>{book.volumeInfo.title}</h3>
+                <h5>{book.volumeInfo.authors?.join(", ")}</h5>
+                <p>{book.volumeInfo.description}</p>
+              </Col>
 
-            <a href={book.volumeInfo.previewLink} target="_blank">
-              <button>View Book</button>
-            </a>
-          </Row>
-        </li>
-      ))}
-    </ul>
+              <Col size="md-12">
+                <a href={book.volumeInfo.previewLink} target="_blank">
+                  <button type="button" className="btn btn-outline-primary mt-3">View Book</button>
+                </a>
+                <button type="button" className="btn btn-outline-success mt-3 ml-2">Save Book</button>
+              </Col>
+            </Row>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
 
