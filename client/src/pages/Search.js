@@ -1,10 +1,40 @@
-import React from "react";
+import React, { Component } from "react";
+import API from "../utils/API";
 import Hero from "../components/Hero";
 import {Container, Row, Col} from "../components/Grid";
 import SearchForm from "../components/SearchForm";
 import backgroundImage from "../images/bgImage.jpg";
+import SearchList from "../components/SearchList";
 
-function About() {
+class Search extends Component {
+  state = {
+    search: "",
+    books: [],
+    error: ""
+  };
+
+  // handleInputChange = event => {
+  //   const { name, value } = event.target;
+  //   this.setState({ [name]: value });
+  // };
+
+  handleInputChange = event => {
+    this.setState({ search: event.target.value });
+  };
+
+  handleFormSubmit = event => {
+    event.preventDefault();
+    API.searchBook(this.state.search)
+      .then(res => {
+        if (res.data.status === "error") {
+          throw new Error(res.data.items);
+        }
+        this.setState({ books: res.data.items, error: "" });
+      })
+      .catch(err => this.setState({ error: err.message }));
+  };
+
+  render() {
     return (
       <div>
         <Hero backgroundImage={backgroundImage}>
@@ -19,12 +49,22 @@ function About() {
           </Row>
           <Row>
             <Col size="md-12">
-              <SearchForm />
+              <SearchForm 
+                value={this.state.search}
+                handleFormSubmit={this.handleFormSubmit}
+                handleInputChange={this.handleInputChange} 
+              />
+            </Col>
+          </Row>
+          <Row>
+            <Col size="md-12">
+              <SearchList books={this.state.books} />
             </Col>
           </Row>
         </Container>
       </div>
     );
   }
+}
   
-  export default About;
+export default Search;
