@@ -29,6 +29,19 @@ class Search extends Component {
       .catch(err => this.setState({ error: err.message }));
   };
 
+  handleSavedBook = bookData => {
+    API.saveBook({
+      _id: bookData.id,
+      title: bookData.title,
+      authors: bookData.authors,
+      description: bookData.description,
+      link: bookData.link,
+      image: bookData.image
+    })
+    .then(alert("Book saved successfully!"))
+    .catch(err => console.log(err));
+  };
+
   render() {
     return (
       <div>
@@ -53,7 +66,10 @@ class Search extends Component {
           </Row>
           <Row>
             <Col size="md-12">
-              <SearchList books={this.state.books} />
+              <SearchList 
+                books={this.state.books} 
+                handleSavedBook={this.handleSavedBook}
+              />
             </Col>
           </Row>
         </Container>

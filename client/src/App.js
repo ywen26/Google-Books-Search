@@ -13,7 +13,7 @@ function App() {
         <Wrapper>
           <Route exact path="/" component={Search} />
           <Route exact path="/about" component={Search} />
-          <Route exact path="/staff" component={Saved} />
+          <Route exact path="/saved" component={Saved} />
         </Wrapper>
       </div>
     </BrowserRouter>

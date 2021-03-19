@@ -22,7 +22,7 @@ function SearchList(props) {
                 <a href={book.volumeInfo.previewLink} target="_blank">
                   <button type="button" className="btn btn-outline-primary mt-3">View Book</button>
                 </a>
-                <button type="button" className="btn btn-outline-success mt-3 ml-2">Save Book</button>
+                <button type="button" onClick={props.handleSavedBook} className="btn btn-outline-success mt-3 ml-2">Save Book</button>
               </Col>
             </Row>
           </li>
