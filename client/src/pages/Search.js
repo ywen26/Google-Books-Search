@@ -31,7 +31,7 @@ class Search extends Component {
 
   handleSavedBook = bookData => {
     API.saveBook({
-      _id: bookData.id,
+      id: bookData.id,
       title: bookData.title,
       authors: bookData.authors,
       description: bookData.description,

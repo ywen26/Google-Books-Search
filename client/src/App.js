@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Search from "./pages/Search";
 import Saved from "./pages/Saved";
 import Navbar from "./components/Navbar";
@@ -11,9 +11,11 @@ function App() {
       <div>
         <Navbar />
         <Wrapper>
-          <Route exact path="/" component={Search} />
-          <Route exact path="/about" component={Search} />
-          <Route exact path="/saved" component={Saved} />
+          <Switch>
+            <Route exact path="/" component={Search} />
+            <Route exact path="/about" component={Search} />
+            <Route exact path="/saved" component={Saved} />
+          </Switch>
         </Wrapper>
       </div>
     </BrowserRouter>

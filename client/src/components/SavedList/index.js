@@ -6,7 +6,7 @@ function SavedList(props) {
     <div className="card mt-5">
       <ul className="list-group search-results">
         {props.books.map(book => (
-          <li className="list-group-item" key={book._id}>
+          <li className="list-group-item" key={book._id} id={book._id} >
             <Row>
               <Col size="md-2">
                 <img src={book.image} alt="book" />
