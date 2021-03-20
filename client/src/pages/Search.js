@@ -29,18 +29,27 @@ class Search extends Component {
       .catch(err => this.setState({ error: err.message }));
   };
 
-  handleSavedBook = bookData => {
-    API.saveBook({
-      id: bookData.id,
-      title: bookData.title,
-      authors: bookData.authors,
-      description: bookData.description,
-      link: bookData.link,
-      image: bookData.image
-    })
-    .then(alert("Book saved successfully!"))
-    .catch(err => console.log(err));
-  };
+  // handleSavedBook = bookData => {
+  //   API.saveBook({
+  //     id: bookData.id,
+  //     title: bookData.title,
+  //     authors: bookData.authors,
+  //     description: bookData.description,
+  //     link: bookData.link,
+  //     image: bookData.image
+  //   })
+  //   .then(alert("Book saved successfully!"))
+  //   .catch(err => console.log(err));
+  // };
+
+  handleSavedBook = event => {
+    event.preventDefault();
+    let savedBooks = this.state.books.filter(book => book.id === event.target.id);
+    savedBooks = savedBooks[0];
+    API.saveBook(savedBooks)
+      .then(alert("Your book is saved successfully!"))
+      .catch(err => console.log(err));
+  }
 
   render() {
     return (
