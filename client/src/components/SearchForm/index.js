@@ -1,21 +1,6 @@
 import React from "react";
 
-// export function Input(props) {
-//     return (
-//       <div className="form-group">
-//         <input className="form-control" {...props} placeholder="Book Name" />
-//       </div>
-//     );
-// }
-
-// export function FormBtn(props) {
-//     return (
-//       <button {...props} className="btn btn-success">
-//         Search
-//       </button>
-//     );
-// }
-
+// This file exports the search form with input field and submit button
 function SearchForm(props) {
     return (
       <div className="input-group mt-2" style={{ fontSize: 100 }}>

@@ -1,6 +1,7 @@
 import React from "react";
 import { Row, Col } from "../Grid/index";
 
+// This file exports the search results list component
 function SearchList(props) {
   return (
     <div className="card mt-5">

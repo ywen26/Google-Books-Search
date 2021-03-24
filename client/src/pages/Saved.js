@@ -4,16 +4,19 @@ import SavedList from "../components/SavedList";
 import API from "../utils/API";
 
 class Saved extends Component {
+  // Setting initial state of component
   state = {
     savedBooks: []
   };
 
+  // Load all books which have been saved to database
   componentDidMount = () => {
     API.getBooks()
       .then(res => this.setState({ savedBooks: res.data }))
       .catch(err => console.log(err));
   }
 
+  // Deletes a book from the database with a given id, then reloads books from the database
   deleteBooks = id => {
     API.deleteBook(id)
       .then(res => this.componentDidMount())

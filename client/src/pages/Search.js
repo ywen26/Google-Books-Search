@@ -7,16 +7,19 @@ import backgroundImage from "../images/bgImage.jpg";
 import SearchList from "../components/SearchList";
 
 class Search extends Component {
+  // Setting initial state of component
   state = {
     search: "",
     books: [],
     error: ""
   };
 
+  // Handles updating component state when the user types into the input field
   handleInputChange = event => {
     this.setState({ search: event.target.value });
   };
 
+  // Display searching results when handling the click on search button
   handleFormSubmit = event => {
     event.preventDefault();
     API.searchBook(this.state.search)
@@ -43,6 +46,7 @@ class Search extends Component {
       .catch(err => this.setState({ error: err.message }));
   };
 
+  // Use the API.saveBook method to save the book data, then reload books from the database
   handleSavedBook = event => {
     event.preventDefault();
     let savedBooks = this.state.books.filter(book => book.id === event.target.id);

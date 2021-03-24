@@ -1,6 +1,7 @@
 import React from "react";
 import { Col, Row } from "../Grid/index";
 
+// This file exports the saved books list component
 function SavedList(props) {
   return (
     <div className="card mt-5">
