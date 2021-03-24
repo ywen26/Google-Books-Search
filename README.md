@@ -14,11 +14,27 @@ The purpose of this assignment is to create a google books search engine with bo
 * Express
 * MongoDB
 
+## Appearance and Functionality
+
+Below is the page for searching books:
+![Demo](./client/src/images/ss1.png)
+
+And the page for viewing saved books:
+![Demo](./client/src/images/ss2.png)
+
+Here is the deployed link of the application: [Google Books Search](https://find-your-books.herokuapp.com/)
+
+You can also explore this application through my [portfolio](https://yuwenyu.herokuapp.com/).
+
 ## URL Sources
 
 Feel free to check the application repository: [https://github.com/ywen26/Google-Books-Search](https://github.com/ywen26/Google-Books-Search)
 
 If you have any questions and ideas about this application, please contact me at: <yensonyu@gmail.com>
+
+## Credits
+
+Image sources: [https://www.pexels.com/](https://www.pexels.com/)
 
 ## License
 
