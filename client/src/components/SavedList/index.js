@@ -6,7 +6,7 @@ function SavedList(props) {
     <div className="card mt-5">
       <ul className="list-group search-results">
         {props.books.map(book => (
-          <li className="list-group-item" key={book._id} id={book._id} >
+          <li className="list-group-item" key={book._id} >
             <Row>
               <Col size="md-2">
                 <img src={book.image} alt="book" />
@@ -14,7 +14,7 @@ function SavedList(props) {
   
               <Col size="md-10">
                 <h3>{book.title}</h3>
-                <h5>{book.authors?.join(", ")}</h5>
+                <h5>{book.authors}</h5>
                 <p>{book.description}</p>
               </Col>
   
@@ -22,7 +22,7 @@ function SavedList(props) {
                 <a href={book.link} target="_blank">
                   <button type="button" className="btn btn-outline-primary mt-3">View Book</button>
                 </a>
-                <button type="button" className="btn btn-outline-success mt-3 ml-2">Delete Book</button>
+                <button type="button" className="btn btn-outline-danger mt-3 ml-2">Delete Book</button>
               </Col>
             </Row>
           </li>

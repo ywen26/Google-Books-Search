@@ -23,24 +23,25 @@ class Search extends Component {
       .then(res => {
         if (res.data.status === "error") {
           throw new Error(res.data.items);
+        } else {
+          let results = res.data.items;
+          results = results.map((result) => {
+            result = {
+							key: result.id,
+							id: result.id,
+							title: result.volumeInfo.title,
+							authors: result.volumeInfo.authors?.join(", "),
+							description: result.volumeInfo.description,
+							image: result.volumeInfo.imageLinks.thumbnail,
+							link: result.volumeInfo.previewLink
+						};
+						return result;
+          });
+          this.setState({ books: results, error: "" });
         }
-        this.setState({ books: res.data.items, error: "" });
       })
       .catch(err => this.setState({ error: err.message }));
   };
-
-  // handleSavedBook = bookData => {
-  //   API.saveBook({
-  //     id: bookData.id,
-  //     title: bookData.title,
-  //     authors: bookData.authors,
-  //     description: bookData.description,
-  //     link: bookData.link,
-  //     image: bookData.image
-  //   })
-  //   .then(alert("Book saved successfully!"))
-  //   .catch(err => console.log(err));
-  // };
 
   handleSavedBook = event => {
     event.preventDefault();

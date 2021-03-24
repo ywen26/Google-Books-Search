@@ -9,17 +9,17 @@ function SearchList(props) {
           <li className="list-group-item" key={book.id}>
             <Row>
               <Col size="md-2">
-                <img src={book.volumeInfo.imageLinks?.thumbnail} alt="book" />
+                <img src={book.image} alt="book" />
               </Col>
 
               <Col size="md-10">
-                <h3>{book.volumeInfo.title}</h3>
-                <h5>{book.volumeInfo.authors?.join(", ")}</h5>
-                <p>{book.volumeInfo.description}</p>
+                <h3>{book.title}</h3>
+                <h5>{book.authors}</h5>
+                <p>{book.description}</p>
               </Col>
 
               <Col size="md-12">
-                <a href={book.volumeInfo.previewLink} target="_blank">
+                <a href={book.link} target="_blank">
                   <button type="button" className="btn btn-outline-primary mt-3">View Book</button>
                 </a>
                 <button 
