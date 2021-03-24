@@ -22,7 +22,14 @@ function SavedList(props) {
                 <a href={book.link} target="_blank">
                   <button type="button" className="btn btn-outline-primary mt-3">View Book</button>
                 </a>
-                <button type="button" className="btn btn-outline-danger mt-3 ml-2">Delete Book</button>
+                <button 
+                  type="button" 
+                  className="btn btn-outline-danger mt-3 ml-2"
+                  onClick={() => props.deleteBooks(book._id)}
+                  id={book._id}
+                >
+                  Delete Book
+                </button>
               </Col>
             </Row>
           </li>
